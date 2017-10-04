@@ -1,2 +1,0 @@
-# composertest
-test
