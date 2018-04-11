@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "netease\\app\\": "src/"
+      "netease\\app\\": "src/App"
     }
   }
 }
