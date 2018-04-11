@@ -1,4 +1,11 @@
 # 网易云直播
+Installation 使用 Composer 安装 在项目中的 composer.json 文件中添加依赖：
+```shell
+“require”: {
+    “mobile/push”: “dev-master”
+},
+```
+执行 $ composer update 进行安装。
 首先引入：
 ```php
 use netease\app\Netease;
