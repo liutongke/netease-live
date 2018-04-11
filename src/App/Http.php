@@ -93,60 +93,6 @@ class Http
                     'data' => $msg
                 ];
                 break;
-            case 1000:
-                $message = [
-                    'msg' => '失败(系统内部错误)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1001:
-                $message = [
-                    'msg' => '失败(只支持 HTTP Post 方法，不支持 Get 方法)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1002:
-                $message = [
-                    'msg' => '失败(缺少了必须的参数)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1003:
-                $message = [
-                    'msg' => '失败(参数值不合法)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1004:
-                $message = [
-                    'msg' => '失败(验证失败)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1005:
-                $message = [
-                    'msg' => '失败(消息体太大)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1008:
-                $message = [
-                    'msg' => '失败(appkey参数非法)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1020:
-                $message = [
-                    'msg' => '失败(只支持 HTTPS 请求)',
-                    'code' => $error_code
-                ];
-                break;
-            case 1030:
-                $message = [
-                    'msg' => '失败(内部服务超时)',
-                    'code' => $error_code
-                ];
-                break;
             default:
                 $message = [
                     'msg' => $msg['msg'],
