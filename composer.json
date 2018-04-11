@@ -1,6 +1,12 @@
 {
   "name": "neteasecloud/live",
-  "description": "netease test",
+  "description": "网易云直播的服务端API",
+  "keywords": [
+    "netease",
+    "laravel",
+    "wangyi",
+    "live"
+  ],
   "type": "sdk",
   "license": "MIT",
   "authors": [
