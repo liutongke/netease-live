@@ -29,14 +29,21 @@ namespace netease\app;
 
 use Exception;
 use DateTime;
+use netease\app\Http;
 
 class Netease
 {
-    private $AppKey;                //开发者平台分配的AppKey
-    private $AppSecret;             //开发者平台分配的AppSecret,可刷新
-    private $Nonce;                 //随机数（最大长度128个字符）
-    private $CurTime;               //当前UTC时间戳，从1970年1月1日0点0 分0 秒开始到现在的秒数(String)
-    private $CheckSum;              //SHA1(AppSecret + Nonce + CurTime),三个参数拼接的字符串，进行SHA1哈希计算，转化成16进制字符(String，小写)
+    //开发者平台分配的AppKey
+    private $AppKey;
+    //开发者平台分配的AppSecret,可刷新
+    private $AppSecret;
+    //随机数（最大长度128个字符）
+    private $Nonce;
+    //当前UTC时间戳，从1970年1月1日0点0 分0 秒开始到现在的秒数(String)
+    private $CurTime;
+    //SHA1(AppSecret + Nonce + CurTime),三个参数拼接的字符串，进行SHA1哈希计算，转化成16进制字符(String，小写)
+    private $CheckSum;
+
     const   HEX_DIGITS = "0123456789abcdef";
 
     public function __construct($AppKey, $AppSecret)
@@ -57,7 +64,9 @@ class Netease
         }
         //当前时间戳，以秒为单位
         $this->CurTime = (string)(time());
+
         $join_string = $this->AppSecret . $this->Nonce . $this->CurTime;
+
         $this->CheckSum = sha1($join_string);
     }
 
@@ -79,20 +88,8 @@ class Netease
             'Content-Type: application/json;charset=utf-8;',
             'Content-Length: ' . strlen($json)
         );
-        //请求数据
-//        require_once "src/Curl/Curl.php";
-        Curl::set('CURLOPT_HTTPHEADER', $http_header)
-            ->post($json)
-            ->url($url);
-        //对结果进行判断
-        if (Curl::error()) {
-            return Curl::message();
-        } else {
-            // 返回的内容
-            return json_decode(Curl::data(), true);
-        }
 
-
+        return Http::postCurl($url, $json, $http_header);
     }
 
     //创建直播间

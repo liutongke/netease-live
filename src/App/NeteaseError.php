@@ -2,7 +2,7 @@
 /*
  * User: keke
  * Date: 2018/4/11
- * Time: 9:58
+ * Time: 11:36
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -24,11 +24,12 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
-require_once __DIR__ . '/vendor/autoload.php';
-use netease\app\SayHello;
-use netease\app\Netease;
 
-$Netease = new Netease('f17ef7a43fcddbde1a9b9cc78b710895', '031d0016e254');
-$res = $Netease->liveChannelAdd('test', '0');
-var_dump($res);
-//echo SayHello::world();
+namespace netease\app;
+
+use Exception;
+
+class NeteaseError extends \Exception
+{
+
+}
