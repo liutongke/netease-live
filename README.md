@@ -2,7 +2,7 @@
 Installation 使用 Composer 安装 在项目中的 composer.json 文件中添加依赖：
 ```shell
 “require”: {
-    “wangyi-live/netease”: “dev-master”
+    "wangyi-live/netease": "^1.0"
 },
 ```
 执行 $ composer update 进行安装。
